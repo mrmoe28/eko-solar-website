@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKO Solar - Solar Detach & Reattach for Roofing Contractors | Georgia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --solar-orange: #FF8C00;
+  --solar-yellow: #FFB300;
+  --solar-light: #FFF3E0;
+  --navy: #0A1F3D;
+  --navy-light: #142B4A;
+  --navy-dark: #051020;
+  --danger-red: #D32F2F;
+  --success-green: #2E7D32;
+  --text-dark: #1a1a2e;
+  --text-muted: #666;
+  --bg-light: #F8FAFC;
+  --white: #ffffff;
+  --border: #E2E8F0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background: var(--navy);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--solar-orange);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--solar-yellow);
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: var(--white);
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--solar-yellow);
+}
+
+.nav-cta {
+  background: var(--solar-orange);
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.nav-cta:hover {
+  background: #E67E00;
+  transform: translateY(-1px);
+}
+
+/* === HERO === */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-dark) 100%);
+  padding: 140px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,140,0,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,140,0,0.15);
+  border: 1px solid rgba(255,140,0,0.3);
+  color: var(--solar-yellow);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  max-width: 700px;
+}
+
+.hero h1 span {
+  color: var(--solar-yellow);
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 20px;
+  max-width: 560px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--solar-orange);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #E67E00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255,140,0,0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--solar-yellow);
+  color: var(--solar-yellow);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--solar-yellow);
+  display: block;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* === PROBLEM SECTION === */
+.section-problem {
+  background: var(--bg-light);
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(211,47,47,0.1);
+  color: var(--danger-red);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.section-tag.green {
+  background: rgba(46,125,50,0.1);
+  color: var(--success-green);
+}
+
+.section-tag.orange {
+  background: rgba(255,140,0,0.1);
+  color: var(--solar-orange);
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.problem-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+
+.problem-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.problem-icon {
+  width: 48px;
+  height: 48px;
+  background: #FFEBEE;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.problem-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.problem-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* === SOLUTION SECTION === */
+.section-solution {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.solution-card {
+  display: flex;
+  gap: 20px;
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 28px;
+  border-left: 4px solid var(--success-green);
+  transition: all 0.2s;
+}
+
+.solution-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
+}
+
+.solution-icon {
+  width: 48px;
+  height: 48px;
+  background: #E8F5E9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.solution-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.solution-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* === HOW IT WORKS === */
+.section-process {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 80px 0;
+  color: var(--white);
+}
+
+.section-process .section-title {
+  color: var(--white);
+}
+
+.section-process .section-tag {
+  background: rgba(255,179,0,0.15);
+  color: var(--solar-yellow);
+}
+
+.process-steps {
+  display: flex;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  right: -24px;
+  width: 24px;
+  height: 2px;
+  background: rgba(255,255,255,0.2);
+}
+
+.process-step:last-child::after {
+  display: none;
+}
+
+.step-circle {
+  width: 56px;
+  height: 56px;
+  background: var(--solar-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 15px rgba(255,140,0,0.3);
+}
+
+.process-step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+
+/* === PRICING SECTION === */
+.section-pricing {
+  background: var(--bg-light);
+  padding: 80px 0;
+}
+
+.pricing-highlight {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.pricing-main {
+  flex: 1;
+}
+
+.pricing-amount {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--solar-orange);
+  line-height: 1;
+}
+
+.pricing-amount span {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.pricing-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.pricing-features {
+  flex: 1;
+  display: grid;
+  gap: 12px;
+}
+
+.pricing-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+.pricing-feature::before {
+  content: '\2713';
+  width: 24px;
+  height: 24px;
+  background: #E8F5E9;
+  color: var(--success-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* === FAQ === */
+.section-faq {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 48px auto 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.6;
+  padding-right: 40px;
+}
+
+/* === CTA SECTION === */
+.section-cta {
+  background: linear-gradient(135deg, var(--solar-orange) 0%, var(--solar-yellow) 100%);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section-cta h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.section-cta p {
+  font-size: 18px;
+  color: rgba(10,31,61,0.8);
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.cta-phone {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.cta-email {
+  font-size: 16px;
+  color: var(--navy);
+  opacity: 0.8;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cta:hover {
+  background: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* === FOOTER === */
+.footer {
+  background: var(--navy-dark);
+  padding: 40px 0 24px;
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.footer-brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--solar-yellow);
+  margin-bottom: 8px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--solar-yellow);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 36px; }
+  .hero-stats { flex-direction: column; gap: 24px; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .process-steps { flex-direction: column; }
+  .process-step::after { display: none; }
+  .pricing-highlight { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">EKO Solar <span>Detach & Reattach Specialists</span></div>
+    <div class="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#solution">Our Solution</a>
+      <a href="#process">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Partner With Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Georgia-Based | Licensed & Insured | NABCEP-Certified</div>
+    <h1>Don't Lose Jobs Because of <span>Solar Panels</span></h1>
+    <p class="hero-subtitle">Partner with EKO Solar to offer complete roof + solar coordination. You handle the roof replacement. We handle the solar detach, storage, and reattach.</p>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn-primary">Get a Partner Quote</a>
+      <a href="#process" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-number">$3,500</span>
+        <span class="hero-stat-label">Avg Adder Per Job</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-number">48hr</span>
+        <span class="hero-stat-label">Typical Turnaround</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-number">$2M</span>
+        <span class="hero-stat-label">Liability Coverage</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-number">100%</span>
+        <span class="hero-stat-label">Warranty Preserved</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section-problem" id="problem">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">The Problem</div>
+      <h2 class="section-title">Why Roofers Struggle With Solar</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">&#9888;</div>
+        <h3>You Lose the Bid</h3>
+        <p>When homeowners ask "What about my solar panels?" and you don't have an answer, they call someone else. You just lost a $15,000-30,000 roof job.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">&#128293;</div>
+        <h3>Liability Exposure</h3>
+        <p>Your roofing crew isn't licensed for DC electrical work. If they disconnect a solar array and someone gets hurt, that's on you. Most general liability excludes electrical.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">&#9881;</div>
+        <h3>Utility Reconnection</h3>
+        <p>Georgia Power requires re-inspection after any physical system modification. Reconnect without it and you're looking at fines and a forced disconnect.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">&#128163;</div>
+        <h3>Warranty Voiding</h3>
+        <p>Non-certified installers performing panel removal often void equipment warranties. Homeowners blame the roofer when their system underperforms later.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">&#128338;</div>
+        <h3>Schedule Coordination Hell</h3>
+        <p>Roofers need the panels gone Monday. Solar guy can't come until Wednesday. Roof crew sits idle. Homeowner is furious. You're losing money.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">&#128172;</div>
+        <h3>"I'll Figure It Out Later"</h3>
+        <p>Subcontracting to a random handyman or electrician who doesn't know solar creates more problems. You need a specialist who understands both roofing and solar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section-solution" id="solution">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag green">The Solution</div>
+      <h2 class="section-title">How EKO Solar Helps You Win</h2>
+    </div>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-icon">&#128737;</div>
+        <div class="solution-content">
+          <h3>We Handle All Solar Work</h3>
+          <p>Panel removal, safe storage, racking management, reinstall, and full commissioning. Your crew never touches a solar panel.</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#9989;</div>
+        <div class="solution-content">
+          <h3>Licensed & NABCEP-Certified</h3>
+          <p>Qualified for DC electrical disconnect and reconnect. We carry $2M liability coverage and workers comp. Certificates available on request.</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#9889;</div>
+        <div class="solution-content">
+          <h3>Georgia Power Coordination</h3>
+          <p>We manage the re-inspection process and utility reconnection. No delays, no compliance issues, no homeowner complaints.</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#128196;</div>
+        <div class="solution-content">
+          <h3>Warranty Preserved</h3>
+          <p>Work performed by a certified solar installer means equipment warranties stay intact. Homeowners get peace of mind, you get protection.</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#128197;</div>
+        <div class="solution-content">
+          <h3>Schedule Coordination</h3>
+          <p>We work around YOUR roofing timeline. Remove panels Monday, store them safely, reinstall Thursday after your inspection passes.</p>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">&#128176;</div>
+        <div class="solution-content">
+          <h3>Add Revenue With Zero Extra Labor</h3>
+          <p>Offer a complete roof + solar package and add $2,000-5,000 to every job that has solar. You don't lift a finger on the solar side.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-process" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-circle">1</div>
+        <h3>Remove Panels</h3>
+        <p>We safely remove panels before your crew starts. Stored securely on-site or off-site depending on timeline.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">2</div>
+        <h3>You Replace Roof</h3>
+        <p>Your timeline, your crew. No solar equipment in the way. Full access to the roof deck.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">3</div>
+        <h3>Reinstall Panels</h3>
+        <p>After your roof inspection passes, we reinstall the array with proper flashing and sealing.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">4</div>
+        <h3>Utility Reconnect</h3>
+        <p>We handle Georgia Power re-inspection and grid reconnection. System is live and commissioned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-pricing" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag orange">Transparent Pricing</div>
+      <h2 class="section-title">What Roofers Typically Charge</h2>
+    </div>
+    <div class="pricing-highlight">
+      <div class="pricing-main">
+        <div class="pricing-amount">$3,500 <span>avg per job</span></div>
+        <p class="pricing-desc">For a typical 20-panel residential system in Georgia. Pricing varies by roof type, access, and electrical complexity. <a href="#contact" style="color:var(--solar-orange); font-weight:600;">Request detailed adder sheet &rarr;</a></p>
+      </div>
+      <div class="pricing-features">
+        <div class="pricing-feature">Panel removal & safe storage</div>
+        <div class="pricing-feature">Reinstall & racking labor</div>
+        <div class="pricing-feature">DC electrical disconnect/reconnect</div>
+        <div class="pricing-feature">Georgia Power re-inspection</div>
+        <div class="pricing-feature">System commissioning & testing</div>
+        <div class="pricing-feature">12-month workmanship warranty</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Common Questions From Roofers</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Do I need a special license to remove solar panels in Georgia? <span>&#9662;</span></div>
+        <div class="faq-answer">Georgia does not have a statewide solar contractor license, but DC electrical disconnect/reconnect requires a licensed electrician. If your crew touches the solar system without proper licensing, you expose yourself to liability and may void warranties. EKO Solar is fully licensed and NABCEP-certified for this work.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What happens if my crew damages a panel? <span>&#9662;</span></div>
+        <div class="faq-answer">If your roofing crew damages a panel, you (or your insurance) are typically liable. When EKO Solar handles removal, we carry $2M liability coverage specifically for solar equipment. We store panels safely and insure them during the project.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How fast can you coordinate with our roofing schedule? <span>&#9662;</span></div>
+        <div class="faq-answer">Typical turnaround is 48 hours from removal to reinstall, but we work around your timeline. We can remove panels the day before your crew starts and reinstall the day after your roof inspection passes. Rush and weekend scheduling available.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do you handle the Georgia Power reconnection? <span>&#9662;</span></div>
+        <div class="faq-answer">Yes. Georgia Power requires a re-inspection after any physical system modification before grid reconnection. We handle the inspection scheduling, documentation, and utility coordination. This is included in our standard service.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What areas in Georgia do you serve? <span>&#9662;</span></div>
+        <div class="faq-answer">Primary service area is Metro Atlanta (Fulton, Gwinnett, Cobb, DeKalb, Forsyth). We also serve Athens, Gainesville, Macon, and Savannah by appointment. Travel fees apply outside Metro Atlanta.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can we white-label your service to our customers? <span>&#9662;</span></div>
+        <div class="faq-answer">Yes. We offer co-branded proposals where EKO Solar appears as your official solar partner. You maintain the customer relationship; we handle the technical work behind the scenes. Ask about our partner referral program.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta" id="contact">
+  <div class="container">
+    <h2>Ready to Partner?</h2>
+    <p>We're seeking 3-4 roofing partners per metro area for the 2025 hail season. Join roofers who are winning more bids by offering complete roof + solar coordination.</p>
+    <div class="cta-phone">404-551-6532</div>
+    <div class="cta-email">ekosolarize@gmail.com</div>
+    <a href="mailto:ekosolarize@gmail.com?subject=Roofing Partnership Inquiry" class="btn-cta">Email Us Today</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">EKO Solar LLC</div>
+        <p class="footer-desc">Georgia's solar detach and reattach specialists. Serving roofing contractors and homeowners across Metro Atlanta and beyond.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#solution">Our Solution</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:404-551-6532">404-551-6532</a></li>
+          <li><a href="mailto:ekosolarize@gmail.com">ekosolarize@gmail.com</a></li>
+          <li>Georgia | Licensed & Insured</li>
+          <li>NABCEP-Certified Installers</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 EKO Solar LLC. All rights reserved. | Georgia Solar Detach & Reattach Specialists
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
