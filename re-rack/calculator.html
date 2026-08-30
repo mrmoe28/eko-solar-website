@@ -3,34 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solar Re-Roof Delay Cost Calculator | EKO Solar</title>
+<title>Solar Re-Rack Cost Calculator | EKO Solar</title>
 <style>
   :root{
     --bg:#000000; --panel:#0a0a0a; --border:#2a2a2a;
-    --cyan:#ffffff; --grad1:#ffffff; --grad2:#cccccc;
-    --text:#f5f5f5; --muted:#9a9a9a;
+    --cyan:#ffffff; --text:#f5f5f5; --muted:#9a9a9a; --accent:#ff6a3d;
   }
   *{box-sizing:border-box;}
   body{
     margin:0; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text); padding:40px 16px;
+    background:var(--bg); color:var(--text); padding:40px 16px;
   }
-  .wrap{max-width:640px; margin:0 auto;}
+  .wrap{max-width:560px; margin:0 auto;}
   h1{font-size:26px; margin:0 0 6px; letter-spacing:-0.01em;}
   .sub{color:var(--muted); font-size:15px; margin:0 0 28px; line-height:1.5;}
   .card{
     background:var(--panel); border:1px solid var(--border); border-radius:16px;
     padding:24px; margin-bottom:16px;
     box-shadow:0 8px 30px rgba(0,0,0,0.35);
-    backdrop-filter:blur(6px);
   }
   label{display:block; font-size:13px; color:var(--muted); margin:14px 0 6px;}
-  input, select{
-    width:100%; padding:11px 12px; border-radius:10px; border:1px solid var(--border);
-    background:#050505; color:var(--text); font-size:15px;
+  input{
+    width:100%; padding:14px 12px; border-radius:10px; border:1px solid var(--border);
+    background:#050505; color:var(--text); font-size:22px; font-weight:700;
   }
-  input:focus, select:focus{outline:1px solid var(--cyan);}
+  input:focus{outline:1px solid var(--accent);}
   button{
     margin-top:20px; width:100%; padding:14px; border:none; border-radius:12px;
     background:var(--text); border:1px solid var(--border);
@@ -42,119 +39,74 @@
     border:1px solid var(--border); background:#050505; display:none;
   }
   .result.show{display:block;}
-  .row{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #1c2c40; font-size:14px;}
+  .row{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #262626; font-size:14px;}
   .row:last-child{border-bottom:none;}
-  .row .num{font-weight:700; color:var(--cyan);}
-  .headline{font-size:22px; font-weight:800; margin:0 0 4px;}
-  .headline span{color:var(--cyan);}
+  .row .num{font-weight:700; color:var(--accent);}
+  .headline{font-size:24px; font-weight:800; margin:0 0 4px;}
+  .headline span{color:var(--accent);}
+  .note{color:var(--muted); font-size:12px; margin-top:10px; line-height:1.4;}
   .cta{
     margin-top:18px; padding:16px; border-radius:12px;
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.25); font-size:14px; line-height:1.5;
   }
-  .cta a{color:var(--cyan); font-weight:700; text-decoration:none;}
+  .cta a{color:var(--accent); font-weight:700; text-decoration:none;}
   footer{color:var(--muted); font-size:12px; text-align:center; margin-top:24px;}
-  .grad{
-    color:#ff6a3d; font-weight:800;
-  }
+  .grad{color:var(--accent); font-weight:800;}
   .reveal{opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease;}
   .reveal.from-left{transform:translateX(-40px);}
-  .reveal.from-right{transform:translateX(40px);}
   .reveal.pop{transform:scale(0.94);}
   .reveal.is-visible{opacity:1; transform:none;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1 class="reveal from-left">What's a solar-equipped roof actually costing your <span class="grad">schedule</span>?</h1>
-  <p class="sub">Every roof with existing panels means someone on your crew is pulling and resetting a solar array instead of roofing. Enter one job and see the real cost — in crew hours, callback risk, and schedule days.</p>
+  <h1 class="reveal from-left">How much does a solar <span class="grad">re-rack</span> job actually cost?</h1>
+  <p class="sub">Enter the panel count. That's it — we'll estimate the panel work and the mounting feet that come with it.</p>
 
   <div class="card reveal pop">
     <label for="panels">Number of panels on the roof</label>
-    <input type="number" id="panels" value="24" min="1">
+    <input type="number" id="panels" value="26" min="1" oninput="calc()">
 
-    <label for="crewrate">Your crew's fully-loaded hourly cost ($/hr, all hands touching this)</label>
-    <input type="number" id="crewrate" value="145" min="1">
-
-    <label for="rate">Estimated re-rack time per panel (minutes, remove + reinstall)</label>
-    <input type="number" id="rate" value="18" min="1">
-
-    <label for="delaydays">Days this job's schedule slips because of the panel work</label>
-    <input type="number" id="delaydays" value="1.5" step="0.5" min="0">
-
-    <label for="dayrate">Revenue you'd otherwise book per crew-day ($)</label>
-    <input type="number" id="dayrate" value="3200" min="0">
-
-    <label for="warranty">Do you carry solar-mount liability insurance / manufacturer certification?</label>
-    <select id="warranty">
-      <option value="no">No</option>
-      <option value="unsure">Not sure</option>
-      <option value="yes">Yes</option>
-    </select>
-
-    <label for="feet">Mounting feet likely needing replacement (flashing swap, corrosion, etc.)</label>
-    <input type="number" id="feet" value="0" min="0">
-
-    <button onclick="calc()">Calculate the real cost</button>
-
-    <div class="result" id="result">
-      <p class="headline">This job is costing you roughly <span id="totalcost">$0</span></p>
-      <div class="row"><span>Crew labor pulling/resetting panels</span><span class="num" id="laborcost">$0</span></div>
-      <div class="row"><span>Booked revenue lost to schedule slip</span><span class="num" id="delaycost">$0</span></div>
-      <div class="row"><span>Warranty/liability exposure</span><span class="num" id="riskflag">—</span></div>
-      <div class="row"><span>EKO re-rack quote (est., $300/panel)</span><span class="num" id="ekopanelcost">$0</span></div>
-      <div class="row"><span>Mounting foot replacement (est., $500/ft)</span><span class="num" id="ekofeetcost">$0</span></div>
-      <div class="row"><span>EKO total estimate</span><span class="num" id="ekototal">$0</span></div>
+    <div class="result show" id="result">
+      <p class="headline">Estimated re-rack cost: <span id="totalcost">$0</span></p>
+      <div class="row"><span>Panel removal + reinstall (<span id="panelcount">0</span> × $300)</span><span class="num" id="panelcost">$0</span></div>
+      <div class="row"><span>Mounting feet (<span id="feetcount">0</span> × $9, IronRidge Halo Ultra Grip)</span><span class="num" id="feetcost">$0</span></div>
+      <div class="row"><span>Total estimate</span><span class="num" id="grandtotal">$0</span></div>
+      <p class="note">Feet count scales with panel count and array layout — estimated at ~2.5 feet per panel (a 26-panel job runs about 65 feet). Final count confirmed on-site.</p>
       <div class="cta" id="ctaBox"></div>
     </div>
+
+    <button onclick="calc()">Recalculate</button>
   </div>
 
-  <footer>Built by EKO Solar — re-rack/de-rack subcontract crews for roofing companies in metro Atlanta. Estimates only, based on your inputs above.</footer>
+  <footer>Built by EKO Solar — re-rack/de-rack subcontract crews for roofing companies in metro Atlanta. Estimate only, confirmed on final quote.</footer>
 </div>
 
 <script>
+const FEET_PER_PANEL = 2.5;
+const PANEL_RATE = 300;
+const FOOT_RATE = 9;
+
 function calc(){
   const panels = parseFloat(document.getElementById('panels').value) || 0;
-  const crewrate = parseFloat(document.getElementById('crewrate').value) || 0;
-  const rate = parseFloat(document.getElementById('rate').value) || 0;
-  const delaydays = parseFloat(document.getElementById('delaydays').value) || 0;
-  const dayrate = parseFloat(document.getElementById('dayrate').value) || 0;
-  const warranty = document.getElementById('warranty').value;
-  const feet = parseFloat(document.getElementById('feet').value) || 0;
+  const feet = Math.round(panels * FEET_PER_PANEL);
 
-  const laborHours = (panels * rate) / 60;
-  const laborCost = laborHours * crewrate;
-  const delayCost = delaydays * dayrate;
-  const total = laborCost + delayCost;
+  const panelCost = panels * PANEL_RATE;
+  const feetCost = feet * FOOT_RATE;
+  const total = panelCost + feetCost;
 
-  const ekoPanelCost = panels * 300;
-  const ekoFeetCost = feet * 500;
-  const ekoTotal = ekoPanelCost + ekoFeetCost;
-
-  document.getElementById('laborcost').textContent = '$' + Math.round(laborCost).toLocaleString();
-  document.getElementById('delaycost').textContent = '$' + Math.round(delayCost).toLocaleString();
+  document.getElementById('panelcount').textContent = panels;
+  document.getElementById('feetcount').textContent = feet;
+  document.getElementById('panelcost').textContent = '$' + Math.round(panelCost).toLocaleString();
+  document.getElementById('feetcost').textContent = '$' + Math.round(feetCost).toLocaleString();
+  document.getElementById('grandtotal').textContent = '$' + Math.round(total).toLocaleString();
   document.getElementById('totalcost').textContent = '$' + Math.round(total).toLocaleString();
-  document.getElementById('ekopanelcost').textContent = '$' + Math.round(ekoPanelCost).toLocaleString();
-  document.getElementById('ekofeetcost').textContent = '$' + Math.round(ekoFeetCost).toLocaleString();
-  document.getElementById('ekototal').textContent = '$' + Math.round(ekoTotal).toLocaleString();
 
-  const riskEl = document.getElementById('riskflag');
-  const ctaBox = document.getElementById('ctaBox');
-  if(warranty === 'no'){
-    riskEl.textContent = 'High — uncertified re-rack can void the homeowner\'s panel warranty';
-    riskEl.style.color = '#f87171';
-  } else if(warranty === 'unsure'){
-    riskEl.textContent = 'Unknown — worth confirming before this job';
-    riskEl.style.color = '#fbbf24';
-  } else {
-    riskEl.textContent = 'Covered';
-    riskEl.style.color = '#4ade80';
-  }
-
-  ctaBox.innerHTML = 'Your in-house cost on this job is roughly $' + Math.round(total).toLocaleString() + '. EKO\'s same-day re-rack estimate is $' + Math.round(ekoTotal).toLocaleString() + ' — your crew stays on the roof the whole time instead of handling panels. <a href="https://ops.lock28.com/start">Get a same-day re-rack quote →</a>';
-
-  document.getElementById('result').classList.add('show');
+  document.getElementById('ctaBox').innerHTML = 'Your estimated same-day re-rack cost is $' + Math.round(total).toLocaleString() + '. <a href="https://ops.lock28.com/start">Get a firm quote →</a>';
 }
+
+calc();
 
 const els = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
