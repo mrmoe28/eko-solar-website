@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Re-Rack / De-Rack for Roofing Companies | EKO Solar</title>
+<style>
+  :root {
+    --navy: #0b1220;
+    --navy-2: #121c30;
+    --cyan: #22d3ee;
+    --blue: #3b82f6;
+    --text: #e5e9f0;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(circle at 20% 0%, #14213d 0%, var(--navy) 55%);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  header.hero { padding: 90px 0 70px; text-align: center; }
+  .kicker {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    border: 1px solid rgba(34,211,238,0.35);
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    font-weight: 800;
+    background: linear-gradient(120deg, #fff, var(--cyan) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 36px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 15px;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: linear-gradient(120deg, var(--cyan), var(--blue));
+    color: #051019;
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  section.cards { padding: 20px 0 70px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px;
+    backdrop-filter: blur(6px);
+  }
+  .card h3 { margin-top: 0; font-size: 18px; }
+  .card p { color: var(--muted); font-size: 14px; }
+  .card a.link { color: var(--cyan); text-decoration: none; font-weight: 600; font-size: 14px; }
+  .pricing {
+    margin-top: 40px;
+    text-align: center;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .pricing .num { font-size: 32px; font-weight: 800; color: var(--cyan); }
+  footer { text-align: center; padding: 40px 0 60px; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">EKO Solar &middot; Metro Atlanta Subcontractor Service</span>
+    <h1>Your crew shouldn't be the ones touching solar panels.</h1>
+    <p class="sub">Find out what handling panel removal yourself is really costing you — and see if your current process could void the homeowner's warranty.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="calculator.html">Run the 2-minute calculator</a>
+      <a class="btn btn-secondary" href="scorecard.html">Take the risk scorecard</a>
+    </div>
+  </div>
+</header>
+
+<section class="cards">
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <h3>Re-Roof Delay Cost Calculator</h3>
+        <p>Plug in panel count, crew cost, and schedule slip — see the real dollar cost of pulling and resetting panels yourselves, next to EKO's flat quote.</p>
+        <a class="link" href="calculator.html">Open calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Solar Warranty Risk Scorecard</h3>
+        <p>6 questions on flashing spec, manufacturer sign-off, and liability coverage. Find out if your current re-roof process could void a homeowner's solar warranty.</p>
+        <a class="link" href="scorecard.html">Take the scorecard &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>7-Point Solar Re-Roof Checklist</h3>
+        <p>A field-ready checklist for labeling panels, flashing spec, and sign-offs — print it or keep it on the crew lead's phone.</p>
+        <a class="link" href="checklist.md">Get the checklist &rarr;</a>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <div class="num">$300<span style="font-size:16px;font-weight:600;color:var(--muted);"> / panel</span></div>
+      <p style="margin:6px 0 0;color:var(--muted);">Same-day re-rack / de-rack, licensed and insured. Mounting-foot replacement $500/set if needed. We pull it, you re-roof, we reset it — your crew never touches the array.</p>
+      <div style="margin-top:20px;">
+        <a class="btn btn-primary" href="https://ops.lock28.com/start">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    EKO Solar &middot; Metro Atlanta &middot; <a href="https://ops.lock28.com/start">ops.lock28.com/start</a>
+  </div>
+</footer>
+
+</body>
+</html>
