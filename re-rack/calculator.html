@@ -54,14 +54,23 @@
   }
   .cta a{color:var(--cyan); font-weight:700; text-decoration:none;}
   footer{color:var(--muted); font-size:12px; text-align:center; margin-top:24px;}
+  .grad{
+    background:linear-gradient(90deg,#ff6a3d,#ffb347,#4dd0e1);
+    -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800;
+  }
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.from-left{transform:translateX(-40px);}
+  .reveal.from-right{transform:translateX(40px);}
+  .reveal.pop{transform:scale(0.94);}
+  .reveal.is-visible{opacity:1; transform:none;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>What's a solar-equipped roof actually costing your schedule?</h1>
+  <h1 class="reveal from-left">What's a solar-equipped roof actually costing your <span class="grad">schedule</span>?</h1>
   <p class="sub">Every roof with existing panels means someone on your crew is pulling and resetting a solar array instead of roofing. Enter one job and see the real cost — in crew hours, callback risk, and schedule days.</p>
 
-  <div class="card">
+  <div class="card reveal pop">
     <label for="panels">Number of panels on the roof</label>
     <input type="number" id="panels" value="24" min="1">
 
@@ -147,6 +156,14 @@ function calc(){
 
   document.getElementById('result').classList.add('show');
 }
+
+const els = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+els.forEach(el => io.observe(el));
 </script>
 </body>
 </html>
