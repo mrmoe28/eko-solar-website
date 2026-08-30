@@ -6,18 +6,18 @@
 <title>Solar Re-Rack / De-Rack for Roofing Companies | EKO Solar</title>
 <style>
   :root {
-    --navy: #0b1220;
-    --navy-2: #121c30;
-    --cyan: #22d3ee;
-    --blue: #3b82f6;
-    --text: #e5e9f0;
-    --muted: #94a3b8;
+    --navy: #000000;
+    --navy-2: #0a0a0a;
+    --cyan: #ffffff;
+    --blue: #cccccc;
+    --text: #f5f5f5;
+    --muted: #9a9a9a;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: radial-gradient(circle at 20% 0%, #14213d 0%, var(--navy) 55%);
+    background: var(--navy);
     color: var(--text);
     line-height: 1.5;
   }
@@ -29,7 +29,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--cyan);
-    border: 1px solid rgba(34,211,238,0.35);
+    border: 1px solid rgba(255,255,255,0.35);
     padding: 5px 14px;
     border-radius: 999px;
     margin-bottom: 24px;
@@ -39,10 +39,7 @@
     line-height: 1.1;
     margin: 0 0 20px;
     font-weight: 800;
-    background: linear-gradient(120deg, #fff, var(--cyan) 70%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #fff;
   }
   .sub {
     font-size: clamp(16px, 2vw, 20px);
@@ -62,8 +59,8 @@
   }
   .btn:hover { transform: translateY(-2px); }
   .btn-primary {
-    background: linear-gradient(120deg, var(--cyan), var(--blue));
-    color: #051019;
+    background: #ffffff;
+    color: #000000;
   }
   .btn-secondary {
     background: rgba(255,255,255,0.06);
@@ -85,8 +82,8 @@
   .pricing {
     margin-top: 40px;
     text-align: center;
-    background: rgba(59,130,246,0.08);
-    border: 1px solid rgba(59,130,246,0.25);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 16px;
     padding: 28px;
   }
@@ -103,8 +100,8 @@
     <h1>Your crew shouldn't be the ones touching solar panels.</h1>
     <p class="sub">Find out what handling panel removal yourself is really costing you — and see if your current process could void the homeowner's warranty.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="calculator.html">Run the 2-minute calculator</a>
-      <a class="btn btn-secondary" href="scorecard.html">Take the risk scorecard</a>
+      <a class="btn btn-primary" href="rerack-delay-calculator.html">Run the 2-minute calculator</a>
+      <a class="btn btn-secondary" href="warranty-risk-scorecard.html">Take the risk scorecard</a>
     </div>
   </div>
 </header>
@@ -115,17 +112,17 @@
       <div class="card">
         <h3>Re-Roof Delay Cost Calculator</h3>
         <p>Plug in panel count, crew cost, and schedule slip — see the real dollar cost of pulling and resetting panels yourselves, next to EKO's flat quote.</p>
-        <a class="link" href="calculator.html">Open calculator &rarr;</a>
+        <a class="link" href="rerack-delay-calculator.html">Open calculator &rarr;</a>
       </div>
       <div class="card">
         <h3>Solar Warranty Risk Scorecard</h3>
         <p>6 questions on flashing spec, manufacturer sign-off, and liability coverage. Find out if your current re-roof process could void a homeowner's solar warranty.</p>
-        <a class="link" href="scorecard.html">Take the scorecard &rarr;</a>
+        <a class="link" href="warranty-risk-scorecard.html">Take the scorecard &rarr;</a>
       </div>
       <div class="card">
         <h3>7-Point Solar Re-Roof Checklist</h3>
         <p>A field-ready checklist for labeling panels, flashing spec, and sign-offs — print it or keep it on the crew lead's phone.</p>
-        <a class="link" href="checklist.md">Get the checklist &rarr;</a>
+        <a class="link" href="solar-reroof-checklist.md">Get the checklist &rarr;</a>
       </div>
     </div>
 
